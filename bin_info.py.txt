@@ -1,0 +1,30 @@
+import requests
+'''url = "https://bank-card-bin-num-check.p.rapidapi.com/api/v1/bins/b/455372"
+
+headers = {
+    "X-RapidAPI-Key": "bfbf3d04dcmshe1a4c0611a85ec7p12deb2jsn93959422699a",
+    "X-RapidAPI-Host": "bank-card-bin-num-check.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers)
+
+req = response.json()
+
+
+'''
+def bin(bin):
+    url = "https://bin-ip-checker.p.rapidapi.com/"
+
+    querystring = {"bin":bin}
+
+    payload = { "bin": bin }
+    headers = {
+    "content-type": "application/json",
+    "X-RapidAPI-Key": "6798341350mshaa250abe1c94905p1bfb93jsn982423e5f170",
+    "X-RapidAPI-Host": "bin-ip-checker.p.rapidapi.com"
+   }
+    response = requests.post(url, json=payload, headers=headers, params=querystring)
+
+    reqq = response.json()
+    req = reqq['BIN']
+    return req['issuer']['name'].upper(), req['scheme'].upper(), req['type'].upper(), req['country']['name'].upper(), req['country']['flag'], req['level'].upper()
